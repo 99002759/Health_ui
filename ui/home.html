@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: linear-gradient(to left, rgba(255,0,0,0),#5eaefd);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Patient Health Monitoring System</h1>
+    <header>
+        <nav>
+            <a href="http://localhost:8000/time">Heart Rate</a><br><br>
+            <a href="bp.html">Blood Pressure</a><br><br>
+            <a href="bo.html">Blood Oxygen Levels</a>
+        </nav>
+    </header>
+    <p><img src="h1.png" height="500px" width="500px"></p>
+    <script>
+        var source = new EventSource('/time');
+        source.onmessage = function(e) {
+          document.body.innerHTML += e.data + '<br>';
+        };
+      </script>
+</body>
+</html>

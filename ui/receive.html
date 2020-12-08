@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <script>
+    var source = new EventSource('/time');
+    source.onmessage = function(e) {
+      document.body.innerHTML += e.data + '<br>';
+    };
+  </script>
+</body>
+</html>
+
+
+<!-- <html>
+    <head>Live</head>
+<body>
+
+<h1>Getting server updates</h1>
+<div id="result"></div>
+
+<script>
+if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("sse.php");
+  source.onmessage = function(event) {
+    document.getElementById("result").innerHTML += event.data + "<br>";
+  };
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+
+</body>
+</html>  -->
+
+<!-- <!DOCTYPE HTML> 
+
+<html>  
+   <head> 
+  
+      <script type = "text/javascript"> 
+         document.getElementsByTagName("eventsource")[0].addEventListener("server-time", 
+         eventHandler, false); 
+    
+         function eventHandler(event) { 
+
+            // Alert time sent by the server 
+            document.querySelector('#ticker').innerHTML = event.data; 
+         } 
+      </script> 
+   </head> 
+  
+   <body> 
+      <div id = "sse"> 
+         <eventsource src = "/cgi-bin/ticker.cgi" /> 
+      </div> 
+   
+      <div id = "ticker" name = "ticker"> 
+         [TIME] 
+      </div> 
+   </body> 
+</html> -->
